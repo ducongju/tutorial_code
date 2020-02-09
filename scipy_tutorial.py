@@ -8,8 +8,8 @@ Scikits 以 Scipy 为基础，提供如 scikits-learn 机器学习和scikits-ima
 
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy import linalg, optimize
-from scipy.interpolate import interp1d
+# from scipy import linalg, optimize
+# from scipy.interpolate import interp1d
 from scipy.stats import norm
 
 choose = 2

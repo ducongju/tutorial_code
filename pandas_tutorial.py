@@ -4,7 +4,8 @@ pandas提供了大量能使我们快速便捷地处理数据的函数和方法�
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+
+# import matplotlib.pyplot as plt
 
 choose = 2
 

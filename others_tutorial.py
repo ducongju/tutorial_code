@@ -1,6 +1,6 @@
 import sys
 
-choose = 1
+choose = 5
 
 # 迭代器
 if choose == 1:
@@ -61,3 +61,56 @@ elif choose == 2:
         except StopIteration:
             sys.exit()
 
+# 断言
+elif choose == 3:
+    """Python assert（断言）用于判断一个表达式，在表达式条件为 false 的时候触发异常。
+    断言可以在条件不满足程序运行的情况下直接返回错误，而不必等待程序运行后出现崩溃的情况，
+    例如我们的代码只能在 Linux 系统下运行，可以先判断当前系统是否符合条件。"""
+    assert True
+    assert 1 == 2, '1 不等于 2'
+
+# 异常
+elif choose == 4:
+    try:
+        # 尝试执行的代码
+        pass
+    except 错误类型1:
+        # 针对错误类型1，对应的代码处理
+        pass
+    except 错误类型2:
+        # 针对错误类型2，对应的代码处理
+        pass
+    except (错误类型3, 错误类型4):
+        # 针对错误类型3 和 4，对应的代码处理
+        pass
+    except Exception as result:
+        # 打印错误信息
+        print(result)
+    else:
+        # 没有异常才会执行的代码
+        pass
+    finally:
+        # 无论是否有异常，都会执行的代码
+        print("无论是否有异常，都会执行的代码")
+
+# 抛出异常
+elif choose == 5:
+
+    def input_password():
+        # 1. 提示用户输入密码
+        pwd = input("请输入密码：")
+        # 2. 判断密码长度，如果长度 >= 8，返回用户输入的密码
+        if len(pwd) >= 8:
+            return pwd
+        # 3. 密码长度不够，需要抛出异常
+        # 1> 创建异常对象 - 使用异常的错误信息字符串作为参数
+        ex = Exception("密码长度不够")
+        # 2> 抛出异常对象
+        raise ex
+
+
+    try:
+        user_pwd = input_password()
+        print(user_pwd)
+    except Exception as result:
+        print("发现错误：%s" % result)

@@ -5,7 +5,7 @@ import matplotlib.image as mpimg
 choose = 1
 
 if choose == 1:
-    plt.figure(figsize=(10, 10), dpi = 80)
+    plt.figure(figsize=(10, 10), dpi=80)
     t = np.arange(0., 5., 0.2)
     # t = list(range(10))
     plt.plot(t, t, 'r-',
@@ -21,6 +21,7 @@ if choose == 1:
 elif choose == 2:
     def f(t):
         return np.exp(-t) * np.cos(2 * np.pi * t)
+
 
     plt.figure(1)
     plt.subplot(311)
