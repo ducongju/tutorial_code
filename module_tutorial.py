@@ -13,7 +13,7 @@ from pprint import pprint
 import logging
 import math
 
-choose = 10
+choose = 2
 
 # sys模块: 程序与python解释器的交互
 if choose == 1:
@@ -57,6 +57,8 @@ elif choose == 2:
     print(os.getcwd())
     # 当前目录下的文件
     print(os.listdir(os.curdir))
+    # 返回绝对路径
+    print(os.path.abspath('tutorial_code'))
 
     # 产生文件
     f = open("test.file", "w")

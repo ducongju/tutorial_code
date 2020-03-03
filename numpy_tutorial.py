@@ -1,6 +1,6 @@
 import numpy as np
 
-choose = 6
+choose = 5
 
 # 数组方法
 if choose == 1:
@@ -12,10 +12,11 @@ if choose == 1:
             3,
             4,
             5]
+    print(data)
     # 列表list对象转换为n维数组ndarray对象
-    x = np.array(data)
-
-    print(x)  # [1.+1.j 2.+0.j 3.+0.j 4.+0.j 5.+0.j]
+    x = np.array(data) # [1.+1.j 2.+0.j 3.+0.j 4.+0.j 5.+0.j]
+    # list输出有逗号, ndarray输出没有逗号
+    print(x)
     # 查看数组中的数据类型
     print(x.dtype)  # complex128
     # 打印数据结构类型
@@ -49,11 +50,10 @@ elif choose == 3:
             [5, 6]]
     x = np.array(data)
 
-    print(x)
-    # 打印数组维度
-    print(x.ndim)  # 2
-    # 打印数组各个维度的长度
-    print(x.shape)  # (3, 2)
+    x1 = x.ndim
+    x2 = x.shape
+    x3 = x.size
+    x4 = len(x)
 
 # 数组生成
 elif choose == 4:
@@ -68,9 +68,12 @@ elif choose == 4:
     print(x3)  # [[1. 1. 1.] [1. 1. 1.]]
     # 使用empty创建一个二维数组， 一维长度为3， 二维长度为3， 元素为初始化的数组
     x4 = np.empty((3, 3))
-    print(x4)  # [[ 6.23042070e-307  1.95564605e+093  3.01926635e+121]
-    #  [ 6.30749269e-307 -2.24792301e-252  1.78021798e-306]
-    #  [ 7.56596412e-307  1.37961302e-306  1.41695307e+241]]
+    print(x4)
+    """
+    [[ 6.23042070e-307  1.95564605e+093  3.01926635e+121]
+     [ 6.30749269e-307 -2.24792301e-252  1.78021798e-306]
+     [ 7.56596412e-307  1.37961302e-306  1.41695307e+241]]
+    """
     # 使用arange生成连续元素
     x5 = np.arange(5)
     print(x5)  # [0 1 2 3 4]
@@ -82,8 +85,7 @@ elif choose == 5:
     # Numpy 有两种基本对象：ndarray (N-dimensional array object) 和 ufunc (universal function object)。
     # ndarray 是存储单一数据类型的多维数组，而 ufunc 则是能够对数组进行处理的函数。
     x = np.array([1, 2, 4, 3])
-    x.shape = (2, 2)  # [[1, 2],
-    #  [4, 3]]
+    x.shape = (2, 2)  # [[1, 2], [4, 3]]
     y1 = x + x
     y2 = x ** x
     y3 = np.add(x, x)
@@ -91,20 +93,40 @@ elif choose == 5:
     y5 = np.argmax(x, 1)  # [1, 0]
     y6 = np.amax(x, 0)  # [4, 3]
     y7 = np.amax(x, 1)  # [2, 4]
-    y8 = np.tile(x, (1, 2))  # [[1, 2, 1, 2],
-    #  [4, 3, 4, 3]]  相当于matlab的repmat
+    y8 = np.tile(x, (1, 2))  # [[1, 2, 1, 2], [4, 3, 4, 3]]  相当于matlab的repmat
     y9 = np.greater([1, 2, 3], 2)  # [False, False, True]
-    y10 = np.sign(x)  # [[1, 1],
-    #  [1, 1]]
+    y10 = np.sign(x)  # [[1, 1], [1, 1]]
+    y11 = np.multiply(np.ones((2958)), np.ones((16, 1)))
 
 # 数组操作
 elif choose == 6:
     x = np.array([0, 12, 5, 20])
-    # 判断数组中的元素是不是大于10
-    print(x > 10)
-    # 数组中所有大于10的元素的索引位置
-    print(np.where(x > 10))
+    # 判断数组中的元素是不是大于10, 返回{ndarray: (4,)}
+    y1 = x > 10
+    # 数组中所有大于10的元素的索引位置, 返回{tuple: 1}
+    y2 = np.where(x > 10)
+    # 返回一个复制
+    y3 = x.copy()
+    # 索引
+    y4 = (y1, y2, y3)
+    y5 = y4[0][1]
+    # 切片
+    """
+    一个完整的切片表达式包含两个“:”，用于分隔三个参数(start_index、end_index、step)。
+    当只有一个“:”时，默认第三个参数step=1；
+    当一个“:”也没有时，start_index=end_index，表示切取start_index指定的那个元素。
+    """
+    # 取最后一个元素
+    z1 = x[-1]
+    # 取除最后一个元素以外的所有元素
+    z21 = x[:-1]
+    z22 = x[0:-1]
+    # 取从后向前（相反）的元素
+    z31 = x[::-1]
+    z32 = x[-1::-1]
+    # 取所有元素
+    z41 = x[:]
+    z42 = x[::]
 
-    y = x.copy()
 
 # input('Press Enter to exit...')
